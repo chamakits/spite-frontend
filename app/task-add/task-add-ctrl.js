@@ -101,6 +101,7 @@
           console.log("Errored out on encoding file");
           console.log(err);
         });
+        return false;
       }
 
 
