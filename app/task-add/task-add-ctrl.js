@@ -1,5 +1,5 @@
 (function() {
-  var URL = "http://localhost:9090/api/addtask";
+  var URL = "http://localhost:9090/api/add-task";
   var spiteAppControllers = angular.module("spiteAppControllers");
 
   spiteAppControllers.factory("addtask", ["$resource", function($resource) {
@@ -8,8 +8,15 @@
         method: "POST",
         //TODO if it fails, it might be from missing params here.  but shouldn't be.
         //TODO trying to fully validate what I said.
+        params: {
+                    "data": {},
+                    "task": {}
+        },
         headers: {
           'Content-Type': 'application/json'
+        },
+        response: function(resp) {
+          console.log("Success on resource query set.");
         }
       }
     });
@@ -59,10 +66,12 @@
       //This is just for testing for now.  Will need to change this later.
       $scope.addTask = function(dataValues) {
         var toAddTask = new addtask();
-        // dataValues._upload = getEncodedFileUpload();
-        toAddTask.data = dataValues;
+
+        toAddTask.data = {};
+        console.log("Data values:");
+        console.log(dataValues);
         toAddTask.task = {
-          "name": "Task name",
+          "name": "Some Task Name",
           "nameToType": {
             "someFieldName": "someFieldType"
           },
@@ -71,10 +80,24 @@
           }
         };
         var deferred = $q.defer();
-        var promise = getEncodedFileUpload(deferred);
-        promise.then(function(base64EncodedFile){
-          dataValues._upload = base64EncodedFile;
-        }, function(err){
+        var promise = getEncodedFileUpload(deferred).promise;
+        // console.log(promise.then);
+        promise.then(function(base64EncodedFile) {
+          // dataValues._upload = base64EncodedFile;
+          console.log("base string in promise:" + base64EncodedFile);
+          toAddTask.data = {
+            "nameToData": {
+              "_upload": base64EncodedFile
+            }
+          };
+          toAddTask.$save().then(function(succ){
+            console.log("Successfully called post");
+            console.log(succ);
+          }, function(err) {
+            console.log("Error calling post");
+            console.log(err);
+          });
+        }, function(err) {
           console.log("Errored out on encoding file");
           console.log(err);
         });
