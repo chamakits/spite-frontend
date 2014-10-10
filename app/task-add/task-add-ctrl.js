@@ -42,7 +42,13 @@
           toAddTask.task.nameToType[current.key] = current.value;
         });
 
-        toAddTask.$save();
+        toAddTask.$save().then(function(succ){
+          console.log("Succesfully called poast");
+          console.log(succ);
+        }, function(err){
+          console.log("Errored out in post call")
+          console.log(err);
+        });
         return false;
       };
     }

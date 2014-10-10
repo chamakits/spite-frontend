@@ -15,6 +15,10 @@
 
   function getEncodedFileUpload(deferred) {
     var selectedFile = document.getElementById('fileInput').files[0];
+    if (!selectedFile) {
+      deferred.resolve(null);
+      return deferred;
+    }
     var reader = new FileReader();
 
 
