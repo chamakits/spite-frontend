@@ -33,15 +33,36 @@
     return deferred;
   }
 
+  function DataPair(key, value) {
+    this.key = key;
+    this.value = value;
+  }
+
   spiteAppControllers.controller("TaskRunCtrl", ["$scope", "$q", "AddData",
     function($scope, $q, AddData) {
       console.log("Spite app controller task add ctrl");
+
+      $scope.dataPairs = [new DataPair()];
+
+      $scope.AddEmptyDataPair = function(){
+        $scope.dataPairs.push(new DataPair("",""));
+      }
 
       //This is just for testing for now.  Will need to change this later.
       $scope.addTask = function(dataValues) {
         var toAddData = new AddData();
 
-        toAddData.data = {};
+        toAddData.data = {
+          "nameToData": {}
+        };
+
+        _.forEach($scope.dataPairs, function(current) {
+          toAddData.data.nameToData[current.key] = current.value;
+        });
+
+        console.log("Data values:");
+        console.log(toAddData.data);
+
 
         var deferred = $q.defer();
         var promise = getEncodedFileUpload(deferred).promise;
@@ -49,11 +70,7 @@
         promise.then(function(base64EncodedFile) {
           // dataValues._upload = base64EncodedFile;
           console.log("base string in promise:" + base64EncodedFile);
-          toAddData.data = {
-            "nameToData": {
-              "_upload": base64EncodedFile
-            }
-          };
+          toAddData.data.nameToData._upload = base64EncodedFile;
           toAddData.$save().then(function(succ, val){
             console.log("Successfully called post");
             console.log(succ);

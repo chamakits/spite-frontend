@@ -11,6 +11,10 @@
         templateUrl: "/app/task-run/task-run-part.html",
         controller: "TaskRunCtrl"
       })
+      .when("/task-add", {
+        templateUrl: "/app/task-add/task-add-part.html",
+        controller: "TaskAddCtrl"
+      })
       .otherwise({
         redirectTo: "/"
       });
