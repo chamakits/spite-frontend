@@ -7,9 +7,9 @@
 
   spiteApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
-      .when("/task-add", {
-        templateUrl: "/app/task-add/task-add-part.html",
-        controller: "TaskAddCtrl"
+      .when("/task-run", {
+        templateUrl: "/app/task-run/task-run-part.html",
+        controller: "TaskRunCtrl"
       })
       .otherwise({
         redirectTo: "/"
