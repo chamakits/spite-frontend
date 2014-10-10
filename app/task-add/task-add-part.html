@@ -1,10 +1,25 @@
 <div>
   <h1>Tasks input</h1>
 
-  <form ng-submit="addTask(data)" ng-init="data={}">
+  <form ng-submit="addTask(task)" ng-init="task={}">
     <fieldset>
+      <!-- <label for="taskId">Task Id</label>
+      <input id="taskId" type="text" ng-model="task.id" placeholder="Task Id">
+      <br/> -->
+      <label for="taskName">Task Name</label>
+      <input id="taskName" type="text" ng-model="task.name" placeholder="Task Name">
+      <br/>
+      <label for="taskDescription">Task Description</label>
+      <input id="taskDescription" type="text" ng-model="task.description" placeholder="Task Description">
+      <br/>
 
-      <input type="file" id="fileInput">
+      <div ng-repeat="dataPair in dataPairs">
+        <input type="text" ng-model="dataPair.key">
+        <input type="text" ng-model="dataPair.value">
+        <br/>
+      </div>
+      <a class="pure-button" ng-click="AddEmptyDataPair()">Add data</a>
+
       <button type="submit" class="pure-button pure-button-primary">
         Add task
       </button>

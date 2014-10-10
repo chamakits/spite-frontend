@@ -24,7 +24,27 @@
 
   spiteAppControllers.controller("TaskAddCtrl", ["$scope", "$q", "AddTask",
     function($scope, $q, AddTask) {
+      $scope.dataPairs = [new KeyValuePair()];
 
+      $scope.AddEmptyDataPair = function(){
+        $scope.dataPairs.push(new KeyValuePair("",""));
+      }
+
+      $scope.addTask = function(taskIn) {
+        var toAddTask = new AddTask();
+        toAddTask.task = {
+          // "id" : taskIn.id,
+          "name": taskIn.name,
+          "description": taskIn.description,
+          "nameToType": {}
+        };
+        _.forEach($scope.dataPairs, function(current){
+          toAddTask.task.nameToType[current.key] = current.value;
+        });
+
+        toAddTask.$save();
+        return false;
+      };
     }
   ]);
 }(this));
