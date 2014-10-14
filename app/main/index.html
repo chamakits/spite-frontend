@@ -27,8 +27,16 @@
 
   </head>
   <body>
-    <h1><a href="#/task-run">Task Run</a></h1>
-    <h1><a href="#/task-add">Task Add</a></h1>
+
+    <div class="pure-menu pure-menu-open pure-menu-horizontal" ng-controller="MenuController">
+        <a href="#" class="pure-menu-heading">Spite</a>
+
+        <ul>
+            <li class="pure-menu-selected" ng-repeat="header in headers"><a ng-href="#{{header.link}}">{{header.text}}</a>
+            </li>
+        </ul>
+    </div>
+
     <div ng-view></div>
   </body>
 
