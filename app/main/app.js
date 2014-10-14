@@ -17,7 +17,9 @@
     new MenuLinks("/app/task-run/task-run-part.html",
       "TaskRunCtrl", "/task-run", "Task Run"),
     new MenuLinks("/app/task-add/task-add-part.html",
-      "TaskAddCtrl", "/task-add", "Task Add")
+      "TaskAddCtrl", "/task-add", "Task Add"),
+    new MenuLinks("/app/task-list/task-list-part.html",
+      "TaskListCtrl", "/task-list", "Task list"),
   ];
 
 

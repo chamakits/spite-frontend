@@ -1,0 +1,17 @@
+<div id="entries">
+    <input ng-model="searchEntry" placeholder="Search" />
+    <table class="pure-table pure-table-horizontal pure-table-striped">
+        <thead>
+            <th>Task Name</th>
+            <th>Task Description</th>
+        </thead>
+        <tbody class="list">
+            <tr ng-repeat="entry in listEntries | orderBy:predicate:reverse | filter:searchEntry">
+                <td class="entry-name">{{entry.Name}}
+                </td>
+                <td class="redirection-path"> {{entry.Description}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
