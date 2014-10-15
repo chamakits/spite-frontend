@@ -7,9 +7,9 @@
         </thead>
         <tbody class="list">
             <tr ng-repeat="entry in listEntries | orderBy:predicate:reverse | filter:searchEntry">
-                <td class="entry-name">{{entry.Name}}
+                <td class="entry-name">{{entry.name}}
                 </td>
-                <td class="redirection-path"> {{entry.Description}}
+                <td class="redirection-path"> {{entry.description}}
                 </td>
             </tr>
         </tbody>
