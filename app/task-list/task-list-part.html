@@ -4,12 +4,15 @@
         <thead>
             <th>Task Name</th>
             <th>Task Description</th>
+            <th>Run</th>
         </thead>
         <tbody class="list">
             <tr ng-repeat="entry in listEntries | orderBy:predicate:reverse | filter:searchEntry">
                 <td class="entry-name">{{entry.name}}
                 </td>
                 <td class="redirection-path"> {{entry.description}}
+                </td>
+                <td><a ng-click="runTask(entry)">Run Task</a>
                 </td>
             </tr>
         </tbody>

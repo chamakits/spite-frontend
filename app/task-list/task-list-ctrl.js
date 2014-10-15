@@ -16,8 +16,21 @@
     });
   }]);
 
-  spiteAppControllers.controller("TaskListCtrl", ["$scope", "$q", "GetTasks",
-  function($scope, $q, GetTasks){
+  spiteAppControllers.factory("RunTaskNew", ["$resource", function($resource){
+    return $resource(URL, {}, {
+      query: {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        // isArray: true
+      }
+    });
+  }]);
+
+  spiteAppControllers.controller("TaskListCtrl", ["$scope", "$q", "GetTasks", "RunTaskNew",
+  function($scope, $q, GetTasks, RunTaskNew){
+
     var getTaskService = new GetTasks();
     var servicePromise = getTaskService.$save();
     servicePromise.then(
@@ -29,6 +42,14 @@
         console.log("Error:");
         console.log(err);
       });
+
+      $scope.runTask = function(task) {
+        console.log(task)
+        var runTaskService = new RunTaskNew();
+        // TODO rethink this.  Not doing it right.  Running task should probably go elsewhere
+        // TODO rethink how to get the data in.
+      };
+
   }]);
 
 }(this));
