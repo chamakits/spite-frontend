@@ -1,0 +1,29 @@
+<div id="entries">
+    <input ng-model="searchEntry" placeholder="Search" />
+    <div>
+
+        <div class="post-title">
+            <h2>{{task.name}}</h2>
+            <p class="post-meta">
+                {{task.description}}
+            </p>
+        </div>
+        <table class="pure-table pure-table-horizontal pure-table-striped">
+            <thead>
+                <th>Schema Key</th>
+                <th>Schema Value</th>
+                <th>Run</th>
+            </thead>
+            <tbody class="list">
+                <tr ng-repeat="keyValue in taskKeyValueList | orderBy:predicate:reverse | filter:searchEntry">
+                    <td class="entry-name">{{keyValue.key}}
+                    </td>
+                    <td class="redirection-path"> {{keyValue.value}}
+                    </td>
+                    <td><a ng-click="runTask(entry)">Run Task</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

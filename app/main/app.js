@@ -20,6 +20,8 @@
             "TaskAddCtrl", "/task-add", "Task Add"),
         new MenuLinks("/app/task-list/task-list-part.html",
             "TaskListCtrl", "/task-list", "Task List"),
+        new MenuLinks("/app/task-detail/task-detail-part.html",
+            "TaskListCtrl", "/task-detail", "Task Detail"),
     ];
 
 
