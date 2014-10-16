@@ -1,36 +1,36 @@
 <div>
-  <h1>Tasks Add</h1>
+    <h1>Tasks Add</h1>
 
-  <form ng-submit="addTask(task)" ng-init="task={}">
-    <fieldset>
-      <label for="taskName">Task Name</label>
-      <input id="taskName" type="text" ng-model="task.name" placeholder="Task Name">
-      <br>
-      <label for="taskDescription">Task Description</label>
-      <input id="taskDescription" type="text" ng-model="task.description" placeholder="Task Description">
-      <br>
-      <table class="pure-table pure-table-horizontal pure-table-striped">
-        <thead>
-          <th>Data name</th>
-          <th>Data value</th>
-        </thead>
-        <tbody>
-          <tr ng-repeat="dataPair in dataPairs">
-            <td>
-              <input type="text" ng-model="dataPair.key">
-            </td>
-            <td>
-              <input type="text" ng-model="dataPair.value">
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <a class="pure-button" ng-click="AddEmptyDataPair()">Add data</a>
+    <form ng-submit="addTask(task)" ng-init="task={}">
+        <fieldset>
+            <label for="taskName">Task Name</label>
+            <input id="taskName" type="text" ng-model="task.name" placeholder="Task Name">
+            <br>
+            <label for="taskDescription">Task Description</label>
+            <input id="taskDescription" type="text" ng-model="task.description" placeholder="Task Description">
+            <br>
+            <table class="pure-table pure-table-horizontal pure-table-striped">
+                <thead>
+                    <th>Data name</th>
+                    <th>Data value</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="dataPair in dataPairs">
+                        <td>
+                            <input type="text" ng-model="dataPair.key">
+                        </td>
+                        <td>
+                            <input type="text" ng-model="dataPair.value">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class="pure-button" ng-click="AddEmptyDataPair()">Add data</a>
 
-      <button type="submit" class="pure-button pure-button-primary">
-        Add task
-      </button>
-    </fieldset>
+            <button type="submit" class="pure-button pure-button-primary">
+                Add task
+            </button>
+        </fieldset>
 
-  </form>
+    </form>
 </div>

@@ -1,31 +1,31 @@
 <div>
-  <h1>Tasks Run</h1>
+    <h1>Tasks Run</h1>
 
-  <form ng-submit="runTask(data)" ng-init="data={}">
-    <fieldset>
+    <form ng-submit="runTask(data)" ng-init="data={}">
+        <fieldset>
 
-      <table class="pure-table pure-table-horizontal pure-table-striped">
-        <thead>
-          <th>Data input name</th>
-          <th>Data input value</th>
-        </thead>
-        <tbody>
-          <tr ng-repeat="dataPair in dataPairs">
-            <td>
-              <input type="text" ng-model="dataPair.key">
-            </td>
-            <td>
-              <input type="text" ng-model="dataPair.value">
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <a class="pure-button" ng-click="AddEmptyDataPair()">Add data</a>
-      <input type="file" id="fileInput">
-      <button type="submit" class="pure-button pure-button-primary">
-        Run task
-      </button>
-    </fieldset>
+            <table class="pure-table pure-table-horizontal pure-table-striped">
+                <thead>
+                    <th>Data input name</th>
+                    <th>Data input value</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="dataPair in dataPairs">
+                        <td>
+                            <input type="text" ng-model="dataPair.key">
+                        </td>
+                        <td>
+                            <input type="text" ng-model="dataPair.value">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class="pure-button" ng-click="AddEmptyDataPair()">Add data</a>
+            <input type="file" id="fileInput">
+            <button type="submit" class="pure-button pure-button-primary">
+                Run task
+            </button>
+        </fieldset>
 
-  </form>
+    </form>
 </div>
