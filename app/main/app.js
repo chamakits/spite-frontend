@@ -21,7 +21,7 @@
         new MenuLinks("/app/task-list/task-list-part.html",
             "TaskListCtrl", "/task-list", "Task List"),
         new MenuLinks("/app/task-detail/task-detail-part.html",
-            "TaskListCtrl", "/task-detail", "Task Detail"),
+            "TaskDetailCtrl", "/task-detail", "Task Detail"),
     ];
 
 
