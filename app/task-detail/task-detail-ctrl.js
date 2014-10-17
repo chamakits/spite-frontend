@@ -19,6 +19,7 @@
     //s
     spiteAppControllers.controller("TaskDetailCtrl", ["$scope", "$q", "GetTaskDetail",
         function($scope, $q, GetTaskDetail) {
+            document.getElementById('email-layout').id = 'layout';
             $scope.getTaskDetail = function(taskName) {
                 var getTaskService = new GetTaskDetail();
                 getTaskService.view = {

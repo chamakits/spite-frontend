@@ -30,7 +30,7 @@
 
     spiteAppControllers.controller("TaskListCtrl", ["$scope", "$q", "GetTasks", "GetTaskDetail",
         function($scope, $q, GetTasks, GetTaskDetail) {
-
+            document.getElementById('layout').id = 'email-layout';
             var getTaskService = new GetTasks();
             var servicePromise = getTaskService.$save();
             servicePromise.then(

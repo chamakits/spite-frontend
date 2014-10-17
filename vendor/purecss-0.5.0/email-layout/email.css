@@ -42,7 +42,7 @@ a {
  * -- LAYOUT STYLES --
  * This layout consists of three main elements, `#nav` (navigation bar), `#list` (email list), and `#main` (email content). All 3 elements are within `#layout`
  */
-#layout, #nav, #list, #main {
+#email-layout, #nav, #list, #main {
     margin: 0;
     padding: 0;
 }
@@ -202,7 +202,7 @@ a {
 @media (min-width: 40em) {
 
     /* Move the layout over so we can fit the nav + list in on the left */
-    #layout {
+    #email-layout {
         padding-left:500px; /* "left col (nav + list)" width */
         position: relative;
     }
@@ -272,4 +272,3 @@ a {
         padding: 0;
     }
 }
-

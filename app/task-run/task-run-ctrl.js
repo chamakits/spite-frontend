@@ -41,6 +41,7 @@
 
     spiteAppControllers.controller("TaskRunCtrl", ["$scope", "$q", "AddData",
         function($scope, $q, AddData) {
+            document.getElementById('email-layout').id = 'layout';
             console.log("Spite app controller task add ctrl");
 
             $scope.dataPairs = [new KeyValuePair()];
