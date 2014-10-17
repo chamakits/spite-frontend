@@ -8,3 +8,11 @@
     font-size: 90%;
     margin: 0;
 }
+.task-entry {
+    background: #eee;
+    border-top: 1px solid #eee;
+}
+.task-entry:hover {
+    background: #e1e1e1;
+    border-left: 6px solid #ff0000;
+}

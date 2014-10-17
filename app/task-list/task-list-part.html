@@ -1,20 +1,57 @@
-<div id="entries">
-    <input ng-model="searchEntry" placeholder="Search" />
-    <table class="pure-table pure-table-horizontal pure-table-striped">
-        <thead>
-            <th>Task Name</th>
-            <th>Task Description</th>
-            <th>Run</th>
-        </thead>
-        <tbody class="list">
-            <tr ng-repeat="entry in listEntries | orderBy:predicate:reverse | filter:searchEntry">
-                <td class="entry-name">{{entry.name}}
-                </td>
-                <td class="redirection-path"> {{entry.description}}
-                </td>
-                <td><a ng-click="getTaskDetails(entry)">Run Task</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<!-- <div id="list" class="pure-u-1">
+    <div class="email-item email-item-selected pure-g">
+        <div class="pure-u">
+            <img class="email-avatar" alt="Tilo Mitra&#x27;s avatar" height="64" width="64" src="img/common/tilo-avatar.png">
+        </div>
+
+        <div class="pure-u-3-4">
+            <h5 class="email-name">Tilo Mitra</h5>
+            <h4 class="email-subject">Hello from Toronto</h4>
+            <p class="email-desc">
+                Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+            </p>
+        </div>
+    </div>
+</div> -->
+
+<div id="list" class="pure-u-1">
+    <div class="email-item email-item-selected pure-g task-entry" ng-repeat="entry in listEntries | orderBy:predicate:reverse | filter:searchEntry">
+        <!-- TODO replace with an icon of some sort.
+        <div class="pure-u">
+            <img class="email-avatar" alt="Tilo Mitra&#x27;s avatar" height="64" width="64" src="img/common/tilo-avatar.png">
+        </div> -->
+
+        <div class="pure-u-3-4">
+            <!-- <h5 class="email-name">Tilo Mitra</h5> -->
+            <h4 class="email-subject">Name:{{entry.name}}</h4>
+            <p class="email-desc">
+                Description: {{entry.description}}
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="email-content">
+    <div id="entries">
+        <input ng-model="searchEntry" placeholder="Search" />
+        <!-- <table class="pure-table pure-table-horizontal pure-table-striped">
+            <thead>
+                <th>Task Name</th>
+                <th>Task Description</th>
+                <th>Run</th>
+            </thead>
+            <tbody class="list">
+                <tr ng-repeat="entry in listEntries | orderBy:predicate:reverse | filter:searchEntry">
+                    <td class="entry-name">{{entry.name}}
+                    </td>
+                    <td class="redirection-path"> {{entry.description}}
+                    </td>
+                    <td><a ng-click="getTaskDetails(entry)">Run Task</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table> -->
+    </div>
 </div>
