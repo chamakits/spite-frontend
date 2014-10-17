@@ -1,6 +1,5 @@
 (function(that) {
     that.ToMenuLayout = function() {
-        console.log("LAYOUT VIEW.JS")
         var emailLayout = document.getElementById('email-layout');
         if (emailLayout) {
             emailLayout.id = 'layout';
@@ -13,4 +12,3 @@
         }
     };
 })(this);
-// window.ToMenuLayout();
