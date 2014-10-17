@@ -25,7 +25,8 @@
 
     spiteAppControllers.controller("TaskAddCtrl", ["$scope", "$q", "AddTask",
         function($scope, $q, AddTask) {
-            document.getElementById('email-layout').id = 'layout';
+            // document.getElementById('email-layout').id = 'layout';
+            ToMenuLayout();
             $scope.dataPairs = [new KeyValuePair()];
 
             $scope.AddEmptyDataPair = function() {
