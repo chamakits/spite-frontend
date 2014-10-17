@@ -28,7 +28,7 @@
         });
     }]);
 
-    spiteAppControllers.controller("TaskListCtrl", ["$scope", "$q", "GetTasks", "RunTaskNew",
+    spiteAppControllers.controller("TaskListCtrl", ["$scope", "$q", "GetTasks", "GetTaskDetail",
         function($scope, $q, GetTasks, GetTaskDetail) {
 
             var getTaskService = new GetTasks();
@@ -45,7 +45,7 @@
                 });
 
             $scope.getTaskDetails = function(taskView) {
-                console.log(task)
+                console.log(taskView)
                 var runTaskService = new GetTaskDetail();
 
                 runTaskService.view = taskView;
@@ -53,6 +53,7 @@
 
                 servicePromise.then(function(succ) {
                     var detailView = succ;
+                    console.log("Detail view:");
                     console.log(detailView);
                 }, function(err) {
 
