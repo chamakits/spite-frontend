@@ -4,14 +4,14 @@ var gulp = require('gulp'),
 var gulpBeautyWeb = require('gulp-beauty-web').beautify;
 var beautify = require('js-beautify'); //.html;
 
-
-gulp.task('connect', function() {
+var webConnect = function() {
     connect.server({
         // root: 'app',
         livereload: true,
         port: 18080
     });
-});
+}
+gulp.task('connect', webConnect);
 
 function beautifyFilesClosure(patterns, beautifyFunction, destination) {
     return function() {
@@ -57,5 +57,6 @@ gulp.task("watchall", function() {
     gulp.watch(patterns.gulp, taskFunctions.gulp);
     gulp.watch(patterns.beauty, taskFunctions.beauty);
 
+    webConnect();
     // gulp.watch(patterns.gulp, taskFunctions.gulp);
 });

@@ -16,21 +16,20 @@
         });
     }]);
 
-    spiteAppControllers.factory("RunTaskNew", ["$resource", function($resource) {
-        return $resource(URL, {}, {
+    var URLTaskDetail = "http://localhost:9090/api/get-task-detail";
+    spiteAppControllers.factory("GetTaskDetail", ["$resource", function($resource) {
+        return $resource(URLTaskDetail, {}, {
             query: {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
                 },
-
-                // isArray: true
             }
         });
     }]);
 
     spiteAppControllers.controller("TaskListCtrl", ["$scope", "$q", "GetTasks", "RunTaskNew",
-        function($scope, $q, GetTasks, RunTaskNew) {
+        function($scope, $q, GetTasks, GetTaskDetail) {
 
             var getTaskService = new GetTasks();
             var servicePromise = getTaskService.$save();
@@ -45,9 +44,20 @@
                     console.log(err);
                 });
 
-            $scope.runTask = function(task) {
+            $scope.getTaskDetails = function(taskView) {
                 console.log(task)
-                var runTaskService = new RunTaskNew();
+                var runTaskService = new GetTaskDetail();
+
+                runTaskService.view = taskView;
+                var servicePromise = runTaskService.$save();
+
+                servicePromise.then(function(succ) {
+                    var detailView = succ;
+                    console.log(detailView);
+                }, function(err) {
+
+                });
+
                 // TODO rethink this.  Not doing it right.  Running task should probably go elsewhere
                 // TODO rethink how to get the data in.
             };
