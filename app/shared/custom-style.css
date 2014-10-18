@@ -20,3 +20,10 @@
     background: #feeacc;
     font-size: 1.2em;
 }
+.detail-name {
+    background: #dbe4ff;
+}
+.detail-description {
+    background: #feeacc;
+    min-height: 5em;
+}

@@ -53,9 +53,10 @@
                 var servicePromise = runTaskService.$save();
 
                 servicePromise.then(function(succ) {
-                    var detailView = succ;
-                    console.log("Detail view:");
-                    console.log(detailView);
+                    var taskDetail = succ.task;
+                    console.log("Task view:");
+                    console.log(taskDetail);
+                    $scope.taskDetail = taskDetail;
                 }, function(err) {
 
                 });

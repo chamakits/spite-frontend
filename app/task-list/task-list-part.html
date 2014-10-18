@@ -3,7 +3,7 @@
         <span class="glyphicon glyphicon-search pure-u-1-24"></span>
         <input class="pure-u-22-24" ng-model="searchEntry" placeholder="Search" />
     </div>
-    <div class="email-item email-item-selected pure-g task-entry" ng-repeat="entry in listEntries | orderBy:predicate:reverse | filter:searchEntry">
+    <div class="email-item email-item-selected pure-g task-entry" ng-repeat="entry in listEntries | orderBy:predicate:reverse | filter:searchEntry" ng-click="getTaskDetails(entry)">
         <!-- TODO replace with an icon of some sort.
         <div class="pure-u">
             <img class="email-avatar" alt="Tilo Mitra&#x27;s avatar" height="64" width="64" src="img/common/tilo-avatar.png">
@@ -23,5 +23,15 @@
 
 
 
+<!-- <div class="email-content" ng-controller="TaskRunCtrl"> -->
 <div class="email-content">
+    <div ng-include="task-list-detail-part.html"></div>
+    <div class="pure-g">
+        <h1 class="pure-u-1-24"></h1>
+        <h1 class="pure-u-11-12 detail-name">{{taskDetail.name}}</h1>
+    </div>
+    <div class="pure-g">
+        <p class="pure-u-1-12"></p>
+        <p class="pure-u-3-5 detail-description">{{taskDetail.description}}</p>
+    </div>
 </div>
