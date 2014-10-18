@@ -16,3 +16,7 @@
     background: #e1e1e1;
     border-left: 6px solid #ff0000;
 }
+.search-entry {
+    background: #feeacc;
+    font-size: 1.2em;
+}

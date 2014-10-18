@@ -1,9 +1,14 @@
 <div id="list" class="pure-u-1">
+    <div id="entries email-item pure-g task-entry" class="search-entry">
+        <span class="glyphicon glyphicon-search pure-u-1-24"></span>
+        <input class="pure-u-22-24" ng-model="searchEntry" placeholder="Search" />
+    </div>
     <div class="email-item email-item-selected pure-g task-entry" ng-repeat="entry in listEntries | orderBy:predicate:reverse | filter:searchEntry">
         <!-- TODO replace with an icon of some sort.
         <div class="pure-u">
             <img class="email-avatar" alt="Tilo Mitra&#x27;s avatar" height="64" width="64" src="img/common/tilo-avatar.png">
         </div> -->
+
 
         <div class="pure-u-3-4">
             <!-- <h5 class="email-name">Tilo Mitra</h5> -->
@@ -17,8 +22,6 @@
 
 
 
+
 <div class="email-content">
-    <div id="entries">
-        <input ng-model="searchEntry" placeholder="Search" />
-    </div>
 </div>
