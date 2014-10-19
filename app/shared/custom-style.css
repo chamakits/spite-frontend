@@ -17,7 +17,8 @@
     border-left: 6px solid #ff0000;
 }
 .search-entry {
-    background: #feeacc;
+    /*background: #feeacc;*/
+    
     font-size: 1.2em;
 }
 .detail-name {
@@ -26,4 +27,7 @@
 .detail-description {
     background: #feeacc;
     min-height: 5em;
+}
+.detail-description:empty {
+    display: none;
 }
