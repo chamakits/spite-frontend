@@ -31,3 +31,6 @@
 .detail-description:empty {
     display: none;
 }
+.task-data-input:empty {
+    display: none;
+}
