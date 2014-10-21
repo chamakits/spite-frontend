@@ -57,6 +57,16 @@
                     console.log("Task view:");
                     console.log(taskDetail);
                     $scope.taskDetail = taskDetail;
+                    $scope.taskDetail.nameToTypeAndValue =
+                        _.chain(taskDetail.nameToType).pairs()
+                        .collect(
+                            function(currPair) {
+                                return {
+                                    fieldName: currPair[0],
+                                    type: currPair[1],
+                                    value: "",
+                                }
+                            }).value();
                 }, function(err) {
 
                 });

@@ -44,15 +44,19 @@
                     <th>Value</th>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="(fieldName, type) in taskDetail.nameToType">
-                        <td>{{fieldName}}</td>
-                        <td>{{type}}</td>
+                    <tr ng-repeat="currVal in taskDetail.nameToTypeAndValue">
+                        <td>{{currVal.fieldName}}</td>
+                        <td>{{currVal.type}}</td>
                         <td>
-                            <input type="text">
+                            <input type="text" ng-model="currVal.value">
                         </td>
                     </tr>
                 </tbody>
             </table>
+
+            <button type="submit" class="pure-button pure-button-primary">
+                Run task
+            </button>
         </div>
     </div>
 </div>
