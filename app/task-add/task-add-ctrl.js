@@ -55,7 +55,8 @@
                     // "id" : taskIn.id,
                     "name": taskIn.name,
                     "description": taskIn.description,
-                    "nameToType": {}
+                    "nameToType": {},
+                    "commandString": taskIn.commandString,
                 };
                 _.forEach($scope.dataPairs, function(current) {
                     toAddTask.task.nameToType[current.key] = current.value;
